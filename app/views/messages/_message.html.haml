@@ -1,10 +1,11 @@
-.col.s12.m7
-  %h2.header Horizontal Card
-  .card.horizontal
-    .card-image
-      %img{:src => "https://lorempixel.com/100/190/nature/6"}/
-    .card-stacked
+.row
+  .col.s12.m7
+    .card
       .card-content
-        %p I am a very simple card. I am good at containing small bits of information.
+        = message.content
+      .card-image
+        = image_tag message.image.url if message.image.present?
+        -# %span.card-title Card Title
       .card-action
-        %a{:href => "#"} This is a link
+        = link_to "編集",  edit_user_message_path(current_user.id, message.id), class: "waves-effect waves-light btn"
+        = link_to "削除",  "/user/#{message.user_id}/messages/#{message.id}", method: :delete, class:"waves-effect waves-light btn"
