@@ -2,8 +2,14 @@
   .nav-wrapper
     %a.brand-logo{:href => "#"} Blog
     %ul#nav-mobile.right.hide-on-med-and-down
-      %li
-        %a{:href => "sass.html"} Sass
+      - if user_signed_in?
+        %li
+          = link_to "log out", destroy_user_session_path, method: :delete
+      - else
+        %li
+          = link_to "sign up", new_user_session_path, method: :get
+        %li
+          = link_to "sign in", user_session_path, method: :post
       %li
         %a{:href => "badges.html"} Components
       %li
