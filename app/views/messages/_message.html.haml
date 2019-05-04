@@ -6,6 +6,23 @@
       .card-image
         = image_tag message.image.url if message.image.present?
         -# %span.card-title Card Title
+      %ul.card-action
+        %li
+          = link_to user_message_reactions_path(@message, @user) do
+            = fa_icon 'fas fa-surprise', class: 'icon'
+        %li
+          %i.fas.fa-smile-wink
+        %li
+          %i.fas.fa-sad-tear
+        %li
+          %i.fas.fa-sad-cry
+        %li
+          %i.fas.fa-meh-rolling-eyes
+        %li
+          %i.fas.fa-meh-blank
+        %li
+          %i.fas.fa-meh
+        -# = link_to user_message_reactions_path()
       .card-action
         = link_to "編集",  edit_user_message_path(current_user.id, message.id), class: "waves-effect waves-light btn"
         = link_to "削除",  "/user/#{message.user_id}/messages/#{message.id}", method: :delete, class:"waves-effect waves-light btn"

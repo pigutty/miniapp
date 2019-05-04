@@ -22,11 +22,11 @@ ActiveRecord::Schema.define(version: 2019_05_04_154613) do
   end
 
   create_table "reactions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "stamp"
+    t.string "stamp_type"
+    t.integer "stamp_number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
