@@ -1,0 +1,12 @@
+.row
+  .col.s12.m7
+    .card
+      = form_for@message, url: {action: "create"} do |f|
+        .card-content
+          = f.text_area :content, placeholder: "text", maxlengthe: 30
+        .card-image
+          = f.file_field :image, class: "form_image"
+          %img{src: ""}
+          -# %span.card-title Card Title
+        .card-action
+          = f.submit "送信", class: "waves-effect waves-light btn"

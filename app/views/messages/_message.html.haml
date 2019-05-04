@@ -1,10 +1,9 @@
-.col.s12.m7
-  %h2.header Horizontal Card
-  .card.horizontal
-    .card-image
-      %img{:src => "https://lorempixel.com/100/190/nature/6"}/
-    .card-stacked
+.row
+  .col.s12.m7
+    .card
       .card-content
-        %p I am a very simple card. I am good at containing small bits of information.
+        = message.content
+      .card-image
+        = image_tag message.image.url if message.image.present?
+        -# %span.card-title Card Title
       .card-action
-        %a{:href => "#"} This is a link
