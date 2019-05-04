@@ -32,10 +32,27 @@
           .waves-button-input{
               color: white;
           }
-          li{
+        }
+        .reactions{
+          display: flex;
+          border-top: 1px solid;
+          border-top-color:rgba(160,160,160,0.2);
+          margin: 0;
+          ul{
             display: list-item;
-            width: 100%;
+            margin: 10px 0;
+            li.style{
+              display: inline;
+              margin-left: 10px;
+              i{
+                font-size: 16px;
+              }
             }
+            li.number{
+              display: inline;
+              margin: 0;
+            }
+          }
         }
       }
     }
