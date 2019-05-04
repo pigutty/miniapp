@@ -26,14 +26,22 @@ class MessagesController < ApplicationController
   end
 
   def edit
+    @message = Message.find(id_params[:id])
   end
 
   def update
+    message = Message.find(id_params[:id])
+    message.update(message_params) if message.user_id == current_user.id
+    redirect_to root_path
   end
 
   private
   def message_params
     params.require(:message).permit(:content, :image).merge(user_id: current_user.id)
+  end
+
+  def id_params
+    params.permit(:id)
   end
 
 end
