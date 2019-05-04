@@ -70,7 +70,8 @@ Things you may want to cover:
 |id|integer|null: false|
 |user_id|integer|null: false, foreign_key: true|
 |message_id|integer|null: false, foreign_key: true|
-|stamp|string|
+|stame_type|string|
+|stame_number|integer|
 
 ### Association
 - belongs_to :user
