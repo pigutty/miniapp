@@ -1,37 +1,41 @@
 // Place all the styles related to the messages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.row{
-  width: 100%;
-  .col.s12.m7{
-    display: inline-block;
-    margin: auto;
+.wrapper{
+  .row{
     width: 100%;
-    padding: 30px;
-    .card{
-      .card-content{
-        padding: 0;
-        textarea{
-          height: 10rem;
-          border-width: 0;
-        }
-      }
-      .card-image{
-        margin: auto;
-        width: 100px;
-      }
-      .card-action{
-        .waves-effect.waves-light.btn{
-          color: white;
-          background-color: black;
-          width: 100px;
-          margin: 10px;
-        }
-          .waves-button-input{
-            color: white;
+    .col.s12.m7{
+      display: inline-block;
+      margin: auto;
+      width: 100%;
+      padding: 30px;
+      .card{
+        .card-content{
+          padding: 0;
+          textarea{
+            height: 10rem;
+            border-width: 0;
           }
+        }
+        .card-image{
+          margin: auto;
+          width: 100px;
+        }
+        .card-action{
+          .waves-effect.waves-light.btn{
+            color: white;
+            background-color: black;
+            width: 100px;
+            margin: 10px;
+          }
+            .waves-button-input{
+              color: white;
+            }
+        }
       }
     }
   }
+  .pagination{
+    background-color: black;
+  }
 }
-

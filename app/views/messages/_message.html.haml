@@ -7,3 +7,5 @@
         = image_tag message.image.url if message.image.present?
         -# %span.card-title Card Title
       .card-action
+        = link_to "編集",  edit_user_message_path(current_user.id, message.id)
+        = link_to "削除",  "/user/#{message.user_id}/messages/#{message.id}", method: :delete
