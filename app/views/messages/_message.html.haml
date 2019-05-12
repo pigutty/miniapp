@@ -7,30 +7,36 @@
         = image_tag message.image.url if message.image.present?
         -# %span.card-title Card Title
       .reactions
-        %ul
-          %li.style
-            %i.far.fa-surprise
-          %li.number :1
-        %ul
-          %li.style
-            %i.far.fa-smile.wink
-        %ul
-          %li.style
-            %i.far.fa-sad-tear
-        %ul
-          %li.style
-            %i.far.fa-sad-cry
-        %ul
-          %li.style
-            %i.far.fa-meh-rolling-eyes
-        %ul
-          %li.style
-            %i.far.fa-meh-blank
-        %ul
-          %li.style
-            %i.far.fa-wink
+        - if user_signed_in?
+          %ul
+            = form_for user_message_reactions_path(current_user.id, message.id), method: :post, id:"surprise_reaction" do |f|
+              = f.label :stamp_type, class: 'form__stamp_type' do
+                %i.far.fa-surprise
+                = f.submit 'send'
+            -# %li.style
+            -#   %i.far.fa-surprise
+            -# %li.number :1
+        -# %ul
+        -#   %li.style
+        -#     %i.far.fa-smile.wink
+        -# %ul
+        -#   %li.style
+        -#     %i.far.fa-sad-tear
+        -# %ul
+        -#   %li.style
+        -#     %i.far.fa-sad-cry
+        -# %ul
+        -#   %li.style
+        -#     %i.far.fa-meh-rolling-eyes
+        -# %ul
+        -#   %li.style
+        -#     %i.far.fa-meh-blank
+        -# %ul
+        -#   %li.style
+        -#     %i.far.fa-wink
         -# = link_to user_message_reactions_path()
       .card-action
         = link_to "編集",  edit_user_message_path(current_user.id, message.id), class: "waves-effect waves-light btn"
         = link_to "削除",  "/user/#{message.user_id}/messages/#{message.id}", method: :delete, class:"waves-effect waves-light btn"
-        = link_to "スタンプ",  user_message_reactions_path(current_user.id, @messages), class:"waves-effect waves-light btn"
+
+-# = button_to tweet_like_path(like, tweet_id: tweet.id), method: :delete, id: "like-button", remote: true do
