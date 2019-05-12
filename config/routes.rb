@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :user, only: [:show, :edit, :update] do
     resources :messages do
-      resources :reactions, only: [:create]
+      resources :reactions, only: [:create, :destroy]
     end
   end
   root "messages#index"
