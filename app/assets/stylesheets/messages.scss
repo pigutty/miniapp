@@ -21,6 +21,19 @@
           margin: auto;
           width: 100px;
         }
+        .reactions{
+          ul{
+            form{
+              display: flex;
+              select{
+                display: inline;
+              }
+              input{
+                display: inline;
+              }
+            }
+          }
+        }
         .card-action{
           display: flex;
           .waves-effect.waves-light.btn{
