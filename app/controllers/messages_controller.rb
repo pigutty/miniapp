@@ -10,10 +10,11 @@ class MessagesController < ApplicationController
   def new
     @user = User.find(params[:user_id])
     @message = Message.new
+    @message.reactions.build
   end
 
   def create
-    Message.create(message_params)
+    Message.create.build(message_params)
     redirect_to controller: :messages, action: :index
   end
 
@@ -37,7 +38,7 @@ class MessagesController < ApplicationController
 
   private
   def message_params
-    params.require(:message).permit(:content, :image).merge(user_id: current_user.id)
+    params.require(:message).permit(:content, :image, reactions_attributes: [:stamp_type,:stamp_number]).merge(user_id: current_user.id)
   end
 
   def id_params

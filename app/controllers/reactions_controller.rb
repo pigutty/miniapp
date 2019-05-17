@@ -5,7 +5,7 @@ class ReactionsController < ApplicationController
   end
 
   def create
-    reaction = Reaction.create(reaction_params)
+    Reaction.create(reaction_params)
   end
 
   private
