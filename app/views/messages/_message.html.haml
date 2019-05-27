@@ -9,12 +9,36 @@
       - if user_signed_in?
         .reactions
           %ul
-            -# = form_for [current_user, message, @reaction], url: user_message_reactions_path(current_user.id, message.id), id:"surprise_reaction" do |f|
-            = form_for [current_user, message], id:"surprise_reaction" do |f|
-              = f.fields_for :reactions do |m|
-                = m.select :stamp_type, ["surprise"]
-              = f.submit 'send'
+            %li.style
+              %i.far.fa-surprise
+            %li.number :1
+          %ul
+            %li.style
+              %i.far.fa-smile.wink
+          %ul
+            %li.style
+              %i.far.fa-sad-tear
+          %ul
+            %li.style
+              %i.far.fa-sad-cry
+          %ul
+            %li.style
+              %i.far.fa-meh-rolling-eyes
+          %ul
+            %li.style
+              %i.far.fa-meh-blank
+          %ul
+            %li.style
+              %i.far.fa-wink
+          -# %ul
+          -#   -# = form_for [current_user, message, @reaction], url: user_message_reactions_path(current_user.id, message.id), id:"surprise_reaction" do |f|
+          -#   = form_for [current_user, message], id:"surprise_reaction" do |f|
+          -#     = f.fields_for :reactions do |m|
+          -#       = m.select :stamp_type, ["surprise"]
+          -#     = f.submit 'send'
         -# = render 'reactions/reaction'
         .card-action
           = link_to "編集",  edit_user_message_path(current_user.id, message.id), class: "waves-effect waves-light btn"
           = link_to "削除",  "/user/#{message.user_id}/messages/#{message.id}", method: :delete, class:"waves-effect waves-light btn"
+
+
