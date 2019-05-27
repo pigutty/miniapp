@@ -1,0 +1,6 @@
+.reactions
+  %ul
+    = form_for [current_user, message, @reaction], url: user_message_reactions_path(current_user.id, message.id), id:"surprise_reaction" do |f|
+      = f.fields_for :reactions do |f|
+        = f.select :stamp_type, ["surprise"]
+      = f.submit 'send'

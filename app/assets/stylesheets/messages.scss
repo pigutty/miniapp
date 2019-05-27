@@ -21,16 +21,52 @@
           margin: auto;
           width: 100px;
         }
+        .reactions{
+          ul{
+            form{
+              display: flex;
+              select{
+                display: inline;
+              }
+              input{
+                display: inline;
+              }
+            }
+          }
+        }
         .card-action{
+          display: flex;
           .waves-effect.waves-light.btn{
             color: white;
             background-color: black;
             width: 100px;
             margin: 10px;
           }
-            .waves-button-input{
+          .waves-button-input{
               color: white;
+          }
+        }
+        .reactions{
+          display: flex;
+          border-top: 1px solid;
+          border-top-color:rgba(160,160,160,0.2);
+          margin: 0;
+          ul{
+            display: list-item;
+            margin: 10px 0;
+            li.style{
+              display: inline;
+              margin-left: 10px;
+              cursor: pointer;
+              i{
+                font-size: 16px;
+              }
             }
+            // li.number{
+            //   display: inline;
+            //   margin: 0;
+            // }
+          }
         }
       }
     }

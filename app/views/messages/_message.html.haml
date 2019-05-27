@@ -5,7 +5,32 @@
         = message.content
       .card-image
         = image_tag message.image.url if message.image.present?
-        -# %span.card-title Card Title
-      .card-action
-        = link_to "編集",  edit_user_message_path(current_user.id, message.id), class: "waves-effect waves-light btn"
-        = link_to "削除",  "/user/#{message.user_id}/messages/#{message.id}", method: :delete, class:"waves-effect waves-light btn"
+      - if user_signed_in?
+        .reactions{user_data:{id: "#{current_user.id}"}, message_data:{id: "#{message.id}"}}
+          %ul
+            %li.style
+              %i.far.fa-surprise{data:{type: "surprise"}}
+                = message.reactions.where(stamp_type: 'surprise').count
+          %ul
+            %li.style
+              %i.far.fa-smile.wink
+          %ul
+            %li.style
+              %i.far.fa-sad-tear
+          %ul
+            %li.style
+              %i.far.fa-sad-cry
+          %ul
+            %li.style
+              %i.far.fa-meh-rolling-eyes
+          %ul
+            %li.style
+              %i.far.fa-meh-blank
+          %ul
+            %li.style
+              %i.far.fa-wink
+        .card-action
+          = link_to "編集",  edit_user_message_path(current_user.id, message.id), class: "waves-effect waves-light btn"
+          = link_to "削除",  "/user/#{message.user_id}/messages/#{message.id}", method: :delete, class:"waves-effect waves-light btn"
+
+
