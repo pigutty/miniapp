@@ -5,7 +5,6 @@
         = message.content
       .card-image
         = image_tag message.image.url if message.image.present?
-        -# %span.card-title Card Title
       - if user_signed_in?
         .reactions{user_data:{id: "#{current_user.id}"}, message_data:{id: "#{message.id}"}}
           %ul
@@ -30,13 +29,6 @@
           %ul
             %li.style
               %i.far.fa-wink
-          -# %ul
-          -#   -# = form_for [current_user, message, @reaction], url: user_message_reactions_path(current_user.id, message.id), id:"surprise_reaction" do |f|
-          -#   = form_for [current_user, message], id:"surprise_reaction" do |f|
-          -#     = f.fields_for :reactions do |m|
-          -#       = m.select :stamp_type, ["surprise"]
-          -#     = f.submit 'send'
-        -# = render 'reactions/reaction'
         .card-action
           = link_to "編集",  edit_user_message_path(current_user.id, message.id), class: "waves-effect waves-light btn"
           = link_to "削除",  "/user/#{message.user_id}/messages/#{message.id}", method: :delete, class:"waves-effect waves-light btn"
