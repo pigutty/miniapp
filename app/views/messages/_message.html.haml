@@ -10,8 +10,8 @@
         .reactions{user_data:{id: "#{current_user.id}"}, message_data:{id: "#{message.id}"}}
           %ul
             %li.style
-              %i.far.fa-surprise{data:{type: "surprise"}} :
-            %li.number
+              %i.far.fa-surprise{data:{type: "surprise"}}
+                = message.reactions.where(stamp_type: 'surprise').count
           %ul
             %li.style
               %i.far.fa-smile.wink
