@@ -7,10 +7,10 @@
         = image_tag message.image.url if message.image.present?
         -# %span.card-title Card Title
       - if user_signed_in?
-        .reactions
+        .reactions{user_data:{id: "#{current_user.id}"}, message_data:{id: "#{message.id}"}}
           %ul
             %li.style
-              %i.far.fa-surprise :
+              %i.far.fa-surprise{data:{type: "surprise"}} :
             %li.number
           %ul
             %li.style

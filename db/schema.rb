@@ -23,7 +23,6 @@ ActiveRecord::Schema.define(version: 2019_05_04_154613) do
 
   create_table "reactions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "stamp_type"
-    t.integer "stamp_number"
     t.bigint "user_id"
     t.bigint "message_id"
     t.datetime "created_at", null: false

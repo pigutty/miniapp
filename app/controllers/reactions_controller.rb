@@ -1,11 +1,16 @@
 class ReactionsController < ApplicationController
   before_action :set_user
-  def new
-    @reaction = Reaction.new
-  end
 
   def create
-    Reaction.create(reaction_params)
+    @reaction = Reaction.new(stamp_type: params[:stamp_type], user_id: params[:user_id], message_id: params[:message_id])
+    if @reaction.save
+      respond_to do |format|
+        format.json
+      end
+    else
+      @reactions = @message.reactions
+      render :index
+    end
   end
 
   private
@@ -16,7 +21,6 @@ class ReactionsController < ApplicationController
 
   def set_user
     @user = User.find(params[:user_id])
-    @message = Message.find(params[:message_id])
-    @message_id = @message.id
+    # @message = Message.find(params[:message_id])
   end
 end
